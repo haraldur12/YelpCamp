@@ -9,6 +9,8 @@ inside the app.js.
 
 For authentication [PassportJS](http://passportjs.org/docs) was used. 
 
+## Checking whether users have logged in or not 
+
 ```javascript
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
@@ -16,4 +18,19 @@ function isLoggedIn(req, res, next){
     }
     res.redirect("/login");
 };
+```
+## Using the user data as a global object in all ejs templates
+
+```javascript
+app.use((req,res,next)=> {
+    res.locals.currentUser = req.user;
+    next();
+});
+```
+## Requiring isLoggedIn in the routes
+
+```javascript
+app.get('/campgrounds/new',isLoggedIn, (req,res) => {
+    res.render('campgrounds/new');
+});
 ```
