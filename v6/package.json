@@ -1,8 +1,9 @@
 {
-  "name": "v1",
+  "name": "v6",
   "version": "1.0.0",
-  "description": "",
+  "description": "YelpCamp",
   "main": "app.js",
+  "author": "ozan araz",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
